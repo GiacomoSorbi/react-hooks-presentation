@@ -27,7 +27,7 @@ import {
   TableItem,
   TableRow,
   Table,
-  Text,
+  // Text,
   GoToAction
 } from '../../src';
 import preloader from '../../src/utils/preloader';
@@ -37,10 +37,7 @@ import Interactive from '../assets/interactive';
 require('normalize.css');
 
 const images = {
-  city: require('../assets/city.jpg'),
-  kat: require('../assets/kat.gif'),
-  logo: require('../assets/formidable-logo.svg'),
-  markdown: require('../assets/markdown.png')
+  // hooks: require('../assets/hooks.jpg')
 };
 
 preloader(images);
@@ -74,24 +71,17 @@ export default class Presentation extends Component {
         transitionDuration={500}
       >
         <Slide transition={['zoom']} bgColor="primary">
-          <Heading size={1} fit caps lineHeight={1} textColor="black">
-            Spectacle
-          </Heading>
+          <Appear fid="1">
+            <Heading size={1} fit caps lineHeight={1} textColor="black">
+              An Adventurous Foray into React Hooks
+            </Heading>
+          </Appear>
+          <Appear fid="2">
+            <Image src={images.hooks.replace('/', '')} margin="0px auto 40px" />
+          </Appear>
           <Heading size={1} fit caps>
             A ReactJS Presentation Library
           </Heading>
-          <Heading size={1} fit caps textColor="black">
-            Where You Can Write Your Decks In JSX
-          </Heading>
-          <Link href="https://github.com/FormidableLabs/spectacle">
-            <Text bold caps textColor="tertiary">
-              View on Github
-            </Text>
-          </Link>
-          <Text textSize="1.5em" margin="20px 0px 0px" bold>
-            Hit Your Right Arrow To Begin!
-          </Text>
-          <Notes>Let's get started!</Notes>
         </Slide>
         <Slide
           onActive={slideIndex => {
@@ -450,7 +440,6 @@ const myCode = (is, great) => 'for' + 'sharing';
           <Link href="https://www.formidable.com">
             <Image width="100%" src={images.logo} />
           </Link>
-          <Notes>Check us out → https://www.formidable.com</Notes>
         </Slide>
       </Deck>
     );
