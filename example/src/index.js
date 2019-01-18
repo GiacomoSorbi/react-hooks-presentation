@@ -71,24 +71,28 @@ export default class Presentation extends Component {
         transitionDuration={500}
       >
         <Slide transition={['zoom']} bgColor="primary">
+          <Heading size={1} fit caps lineHeight={1}>
+            You are about to begin...
+          </Heading>
           <Appear fid="1">
-            <Heading size={1} fit caps lineHeight={1} textColor="black">
+            <Heading size={1} fit caps lineHeight={1}>
               An Adventurous Foray into React Hooks
             </Heading>
           </Appear>
           <Appear fid="2">
             <Image src={images.hooks.replace('/', '')} margin="0px auto 40px" />
           </Appear>
-          <Heading size={1} fit caps>
-            A ReactJS Presentation Library
+        </Slide>
+        <Slide
+          transitionIn={['zoom', 'fade']}
+          transitionOut={['slide', 'fade']}
+          bgColor="primary"
+        >
+          <Heading size={2} caps fit textColor="primary" textFont="primary">
+            But first a few words from our sponsor
           </Heading>
         </Slide>
         <Slide
-          onActive={slideIndex => {
-            console.info(`Viewing slide index: ${slideIndex}.`); // eslint-disable-line no-console
-          }}
-          id="wait-what"
-          goTo={4}
           transition={[
             'fade',
             (transitioning, forward) => {
@@ -102,18 +106,6 @@ export default class Presentation extends Component {
               };
             }
           ]}
-          bgColor="black"
-        >
-          <Heading size={2} caps fit textColor="primary" textFont="primary">
-            Wait what?
-          </Heading>
-          <Notes>
-            You can even put notes on your slide. How awesome is that?
-          </Notes>
-        </Slide>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
           bgColor="primary"
         >
           <CodePane
