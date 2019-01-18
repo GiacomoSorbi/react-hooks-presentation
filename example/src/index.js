@@ -15,7 +15,7 @@ import {
   Link,
   ListItem,
   List,
-  Markdown,
+  // Markdown,
   MarkdownSlides,
   Notes,
   Quote,
@@ -37,7 +37,7 @@ import Interactive from '../assets/interactive';
 require('normalize.css');
 
 const images = {
-  // hooks: require('../assets/hooks.jpg')
+  hooks: require('../assets/hooks.gif')
 };
 
 preloader(images);
@@ -104,7 +104,6 @@ export default class Presentation extends Component {
           ]}
           bgColor="black"
         >
-          <Image src={images.kat.replace('/', '')} margin="0px auto 40px" />
           <Heading size={2} caps fit textColor="primary" textFont="primary">
             Wait what?
           </Heading>
@@ -134,11 +133,7 @@ export default class Presentation extends Component {
         <Slide goTo={3}>
           <ComponentPlayground theme="dark" />
         </Slide>
-        <Slide
-          transition={['slide']}
-          bgImage={images.city.replace('/', '')}
-          bgDarken={0.75}
-        >
+        <Slide transition={['slide']} bgDarken={0.75}>
           <Appear fid="1">
             <Heading size={1} caps fit textColor="primary">
               Full Width
@@ -320,17 +315,7 @@ export default class Presentation extends Component {
           <Heading caps fit size={1} textColor="primary">
             Inline Markdown
           </Heading>
-          <Markdown>
-            {`
-  ![Markdown Logo](${images.markdown.replace('/', '')})
 
-  You can write inline images, [Markdown Links](http://commonmark.org), paragraph text and most other markdown syntax
-  * Lists too!
-  * With ~~strikethrough~~ and _italic_
-  * And let's not forget **bold**
-  * Add some \`inline code\` to your sldes!
-            `}
-          </Markdown>
           <Notes>Who doesn't love markdown?</Notes>
         </Slide>
         {MarkdownSlides`
@@ -437,9 +422,7 @@ const myCode = (is, great) => 'for' + 'sharing';
           <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
             Made with love in Seattle by
           </Heading>
-          <Link href="https://www.formidable.com">
-            <Image width="100%" src={images.logo} />
-          </Link>
+          <Link href="https://www.formidable.com" />
         </Slide>
       </Deck>
     );
