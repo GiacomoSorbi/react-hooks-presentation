@@ -5,14 +5,14 @@ import {
   Appear,
   BlockQuote,
   Cite,
-  CodePane,
-  ComponentPlayground,
+  // CodePane,
+  // ComponentPlayground,
   Deck,
   Fill,
   Heading,
   Image,
   Layout,
-  Link,
+  // Link,
   ListItem,
   List,
   // Markdown,
@@ -33,7 +33,7 @@ import {
 import preloader from '../../src/utils/preloader';
 import createTheme from '../../src/themes/default';
 import Interactive from '../assets/interactive';
-
+const acurisLogo = require('../assets/acuris-logo.svg');
 require('normalize.css');
 
 const images = {
@@ -43,8 +43,12 @@ const images = {
 preloader(images);
 
 const theme = createTheme({
-  primary: '#ff4081'
+  background: '#FFFFF9',
+  quaternary: '#bc3f4e',
+  primary: '#bc3f4e'
 });
+
+const transitionTime = 200;
 
 export default class Presentation extends Component {
   constructor() {
@@ -68,29 +72,222 @@ export default class Presentation extends Component {
       <Deck
         transition={['zoom', 'slide']}
         theme={theme}
-        transitionDuration={500}
+        transitionDuration={transitionTime}
       >
-        <Slide transition={['zoom']} bgColor="primary">
-          <Heading size={1} fit caps lineHeight={1}>
+        <Slide transition={['zoom']} bgColor="background">
+          <Heading size={1} fit caps lineHeight={1} textColor="primary">
             You are about to begin...
           </Heading>
           <Appear fid="1">
-            <Heading size={1} fit caps lineHeight={1}>
+            <Heading size={1} fit caps lineHeight={1} textColor="primary">
               An Adventurous Foray into React Hooks
             </Heading>
           </Appear>
           <Appear fid="2">
-            <Image src={images.hooks.replace('/', '')} margin="0px auto 40px" />
+            <Image src={images.hooks.replace('/', '')} margin="0px auto" />
           </Appear>
         </Slide>
         <Slide
           transitionIn={['zoom', 'fade']}
           transitionOut={['slide', 'fade']}
-          bgColor="primary"
+          bgColor="background"
         >
-          <Heading size={2} caps fit textColor="primary" textFont="primary">
-            But first a few words from our sponsor
+          <Anim
+            fromStyle={{
+              opacity: 1,
+              transform: 'translate3d(0px, 0px, 0px) scale(1) rotate(0deg)'
+            }}
+            toStyle={[
+              {
+                opacity: 1,
+                transform: 'translate3d(0px, -50%, 0px) scale(1) rotate(0deg)'
+              }
+            ]}
+            easing={'circleIn'}
+            transitionDuration={transitionTime}
+          >
+            <Heading size={2} caps fits textColor="primary">
+              But first a few words from our "sponsor":
+            </Heading>
+          </Anim>
+          <Anim
+            fromStyle={{
+              opacity: 0,
+              transform: 'translate3d(0px, 0px, 0px) scale(1) rotate(0deg)'
+            }}
+            toStyle={[
+              {
+                opacity: 1,
+                transform: 'translate3d(0px, 0px, 0px) scale(1) rotate(0deg)'
+              },
+              {
+                opacity: 1,
+                transform: 'translate3d(0px, -100%, 0px) scale(1) rotate(0deg)'
+              }
+            ]}
+            easing={'circleIn'}
+            transitionDuration={transitionTime}
+          >
+            <Heading size={2} caps textColor="black" textFont="primary">
+              <img
+                src={acurisLogo}
+                height="120px"
+                style={{ marginBottom: '-40px' }}
+              />{' '}
+              Acuris
+            </Heading>
+          </Anim>
+          <Anim
+            fromStyle={{
+              opacity: 0,
+              transform: 'translate3d(0px, 0px, 0px) scale(1) rotate(0deg)'
+            }}
+            toStyle={[
+              {
+                opacity: 1,
+                transform: 'translate3d(-40%, -50%, 0px) scale(1) rotate(0deg)'
+              }
+            ]}
+            easing={'circleIn'}
+            transitionDuration={transitionTime}
+          >
+            <Heading size={2} caps fits textColor="primary" textSize="1.8em">
+              Financial Publishing
+              <br /> and Business Intelligence
+            </Heading>
+          </Anim>
+          <Anim
+            fromStyle={{
+              opacity: 0,
+              transform: 'translate3d(0px, 0px, 0px) scale(1) rotate(0deg)'
+            }}
+            toStyle={[
+              {
+                opacity: 1,
+                transform: 'translate3d(+40%, -225%, 0px) scale(1) rotate(0deg)'
+              }
+            ]}
+            easing={'circleIn'}
+            transitionDuration={transitionTime}
+          >
+            <Heading size={2} caps fits textColor="primary" textSize="2em">
+              Founded in 2000
+            </Heading>
+          </Anim>
+          <Anim
+            fromStyle={{
+              opacity: 0,
+              transform: 'translate3d(0px, 0px, 0px) scale(1) rotate(0deg)'
+            }}
+            toStyle={[
+              {
+                opacity: 1,
+                transform: 'translate3d(-40%, -50%, 0px) scale(1) rotate(0deg)'
+              }
+            ]}
+            easing={'circleIn'}
+            transitionDuration={transitionTime}
+          >
+            <Heading size={2} caps fits textColor="primary" textSize="1.8em">
+              Main sites: London,
+              <br />
+              New York, Hong Kong
+            </Heading>
+          </Anim>
+          <Anim
+            fromStyle={{
+              opacity: 0,
+              transform: 'translate3d(0px, 0px, 0px) scale(1) rotate(0deg)'
+            }}
+            toStyle={[
+              {
+                opacity: 1,
+                transform: 'translate3d(+40%, -150%, 0px) scale(1) rotate(0deg)'
+              }
+            ]}
+            easing={'circleIn'}
+            transitionDuration={transitionTime}
+          >
+            <Heading size={2} caps fits textColor="primary" textSize="1.8em">
+              1300 Employees
+              <br />
+              in 70 locations
+            </Heading>
+          </Anim>
+          <Anim
+            fromStyle={{
+              opacity: 0,
+              transform: 'translate3d(0px, 0px, 0px) scale(1) rotate(0deg)'
+            }}
+            toStyle={[
+              {
+                opacity: 1,
+                transform: 'translate3d(-40%, -100%, 0px) scale(1) rotate(0deg)'
+              }
+            ]}
+            easing={'circleIn'}
+            transitionDuration={transitionTime}
+          >
+            <Heading size={2} caps fits textColor="primary" textSize="1.8em">
+              11 Development Teams
+              <br />
+              across Europe
+            </Heading>
+          </Anim>
+          <Anim
+            fromStyle={{
+              opacity: 0,
+              transform: 'translate3d(0px, 0px, 0px) scale(1) rotate(0deg)'
+            }}
+            toStyle={[
+              {
+                opacity: 1,
+                transform: 'translate3d(+40%, -200%, 0px) scale(1) rotate(0deg)'
+              }
+            ]}
+            easing={'circleIn'}
+            transitionDuration={transitionTime}
+          >
+            <Heading size={2} caps fits textColor="primary" textSize="1.8em">
+              Portugal, Poland, Romania
+              <br />
+              and of course <b>London</b>
+            </Heading>
+          </Anim>
+        </Slide>
+        <Slide
+          transitionIn={['zoom', 'fade']}
+          transitionOut={['slide', 'fade']}
+          bgColor="background"
+        >
+          <Heading size={2} caps fits textColor="primary" textSize="1.8em">
+            In our stack we have React, Redux, Angular, NodeJS, AWS, Go,
+            Terraform and much more
+            <br />
+            <br />
           </Heading>
+          <Appear fd="1">
+            <Heading size={2} caps fits textColor="primary" textSize="1.8em">
+              Currently used by 60+ Devs and Engineers of different seniorities
+            </Heading>
+          </Appear>
+          <Appear fd="2">
+            <Heading size={2} caps fits textColor="primary" textSize="1.8em">
+              And Planning to double that number by the end of the year
+              <br />
+              <br />
+            </Heading>
+          </Appear>
+          <Appear fd="3">
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              And we attract and keep our talents with competitive remuneration
+              and a lot of other perks:
+              <br />
+              training/conferences budget, pair programming, hackdays, wfh days,
+              team lunches (on our roof garden if you wish so), bike-to-work
+              schema, gym discounts and plenty more
+            </Heading>
+          </Appear>
         </Slide>
         <Slide
           transition={[
@@ -102,47 +299,167 @@ export default class Presentation extends Component {
                   translate3d(0%, ${transitioning ? 100 : 0}%, 0)
                   rotate(${transitioning ? angle : 0}deg)
                 `,
-                backgroundColor: transitioning ? '#26afff' : '#000'
+                backgroundColor: transitioning ? 'background' : 'quaternary'
               };
             }
           ]}
-          bgColor="primary"
+          bgColor="background"
         >
-          <CodePane
+          <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+            ...And now, back to Business: React Hooks! <br />
+            First of all - how many are out there for us?
+          </Heading>
+          <Appear fd="1">
+            <div>
+              <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+                Plenty! The full list:
+              </Heading>
+              <List textColor="primary">
+                Basic ones:
+                <ListItem>
+                  <a href="https://reactjs.org/docs/hooks-reference.html#usestate">
+                    useState
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href="https://reactjs.org/docs/hooks-reference.html#useeffect">
+                    useEffect
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href="https://reactjs.org/docs/hooks-reference.html#usecontext">
+                    useContext
+                  </a>
+                </ListItem>
+                More specific ones (you won't be seeing them very often):
+                <ListItem>
+                  <a href="https://reactjs.org/docs/hooks-reference.html#usereducer">
+                    usereducer
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href="https://reactjs.org/docs/hooks-reference.html#usecallback">
+                    useCallback
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href="https://reactjs.org/docs/hooks-reference.html#usememo">
+                    useMemo
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href="https://reactjs.org/docs/hooks-reference.html#useref">
+                    useRef
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href="https://reactjs.org/docs/hooks-reference.html#useimperativehandle">
+                    useImperativeHandle
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href="https://reactjs.org/docs/hooks-reference.html#uselayouteffect">
+                    useLayoutEffect
+                  </a>
+                </ListItem>
+                <ListItem>
+                  <a href="https://reactjs.org/docs/hooks-reference.html#usedebugvalue">
+                    useDebugValue
+                  </a>
+                </ListItem>
+              </List>
+            </div>
+          </Appear>
+          {/* <CodePane
             lang="jsx"
             source={require('raw-loader!../assets/deck.example')}
             margin="20px auto"
             overflow="overflow"
-          />
-          <Notes>
-            <ul>
-              <li>talk about that</li>
-              <li>and that</li>
-              <li>and then this</li>
-            </ul>
-          </Notes>
+          /> */}
         </Slide>
-        <Slide goTo={3}>
-          <ComponentPlayground theme="dark" />
-        </Slide>
-        <Slide transition={['slide']} bgDarken={0.75}>
+        <Slide
+          transitionIn={['zoom', 'fade']}
+          transitionOut={['slide', 'fade']}
+          bgColor="background"
+        >
+          <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+            That's a lot, but they will all do basically one thing
+            <br />- you get the full power of a class component while using
+            function components -...
+            <br />
+            <br />
+          </Heading>
           <Appear fid="1">
-            <Heading size={1} caps fit textColor="primary">
-              Full Width
-            </Heading>
+            <div>
+              <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+                ...and they all follow 2 simple rules:
+              </Heading>
+              <List textColor="primary">
+                <ListItem>
+                  <b>
+                    Thou shall not use hooks outside the top level and never in
+                    loops, conditionals, etc or be cursed;
+                  </b>
+                </ListItem>
+                <ListItem>
+                  <b>
+                    Thou shall not use hooks outside functional components (ie:
+                    never in ordinary JS function) or spend thousands of years
+                    in the CR limbo;
+                  </b>
+                </ListItem>
+              </List>
+            </div>
           </Appear>
           <Appear fid="2">
-            <Heading size={1} caps fit textColor="tertiary">
-              Adjustable Darkness
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              Extra unwritten rule: they are *optional*
+              <br />- use them only if/when you wish!
+            </Heading>
+          </Appear>
+        </Slide>
+        <Slide
+          transitionIn={['zoom', 'fade']}
+          transitionOut={['slide', 'fade']}
+          bgColor="background"
+        >
+          <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+            We are going to focus on 2 of them:
+          </Heading>
+          <List textColor="primary">
+            <Appear fid="1">
+              <ListItem>
+                <b>useState</b>: adding a state to a function component
+              </ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem>
+                <b>useEffect</b>: adding lifecycle methods to a function
+                component
+              </ListItem>
+            </Appear>
+          </List>
+          <Appear fid="2">
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              Don't be sad: they are probably the most common and what you learn
+              with them can be easily translated to the others!
+              <br />
+              <br />
             </Heading>
           </Appear>
           <Appear fid="3">
-            <Heading size={1} caps fit textColor="primary">
-              Background Imagery
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              [Or be sad for all the times that you had to "upgrade" a function
+              component to class component or the other way around and screwed
+              up something...]
             </Heading>
           </Appear>
         </Slide>
-        <Slide transition={['slide']}>
+        <Slide
+          transitionIn={['zoom', 'fade']}
+          transitionOut={['slide', 'fade']}
+          bgColor="background"
+        >
           <Anim
             onAnim={(forwards, animIndex) => {
               /* eslint-disable */
@@ -190,7 +507,7 @@ export default class Presentation extends Component {
               }
             ]}
             easing={'bounceOut'}
-            transitionDuration={500}
+            transitionDuration={transitionTime}
           >
             <div>
               <Heading size={6} caps fit textColor="secondary">
@@ -202,7 +519,11 @@ export default class Presentation extends Component {
           </Anim>
           <Notes>Much animation, very style</Notes>
         </Slide>
-        <Slide>
+        <Slide
+          transitionIn={['zoom', 'fade']}
+          transitionOut={['slide', 'fade']}
+          bgColor="background"
+        >
           <Heading size={2} textColor="secondary" margin="0.25em">
             Mix it up!
           </Heading>
@@ -236,9 +557,9 @@ export default class Presentation extends Component {
           <Notes>Doesn't work in export view, though</Notes>
         </Slide>
         <Slide
-          transition={['slide']}
-          bgDarken={0.75}
-          getAnimStep={this.updateSteps}
+          transitionIn={['zoom', 'fade']}
+          transitionOut={['slide', 'fade']}
+          bgColor="background"
         >
           <Appear>
             <Heading size={1} caps textColor="tertiary">
@@ -259,7 +580,11 @@ export default class Presentation extends Component {
             Steps: {this.state.steps}
           </Heading>
         </Slide>
-        <Slide transition={['zoom', 'fade']} bgColor="primary">
+        <Slide
+          transitionIn={['zoom', 'fade']}
+          transitionOut={['slide', 'fade']}
+          bgColor="background"
+        >
           <Heading caps fit>
             Flexible Layouts
           </Heading>
@@ -287,12 +612,12 @@ export default class Presentation extends Component {
               </Heading>
             </Fill>
           </Layout>
-          <Notes>
-            Use <code>layout</code> to <code>fill</code> or <code>fit</code>{' '}
-            your content
-          </Notes>
         </Slide>
-        <Slide transition={['slide']} bgColor="black">
+        <Slide
+          transitionIn={['zoom', 'fade']}
+          transitionOut={['slide', 'fade']}
+          bgColor="background"
+        >
           <BlockQuote>
             <Quote>Wonderfully formatted quotes</Quote>
             <Cite>Ken Wheeler</Cite>
@@ -414,7 +739,6 @@ const myCode = (is, great) => 'for' + 'sharing';
           <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
             Made with love in Seattle by
           </Heading>
-          <Link href="https://www.formidable.com" />
         </Slide>
       </Deck>
     );
