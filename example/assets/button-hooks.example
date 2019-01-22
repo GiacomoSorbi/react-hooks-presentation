@@ -1,0 +1,14 @@
+import React, {useState} from "react"
+
+const OnOffButton = props => {
+  const [active, setActive] = useState(true)
+  const onClick = e => {
+    setActive(!active)
+    props.onClick(e) //just because we have to...
+  }
+  return (
+    <button className={props.className} onClick={onClick}>
+      {active ? props.text1 : props.text2}
+    </button>
+  );
+}

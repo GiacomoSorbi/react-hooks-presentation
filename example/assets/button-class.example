@@ -1,0 +1,20 @@
+import React from "react"
+
+export const class OnOffButton extends React.component() {
+  constructor(){
+    super(props)
+    state = {active: true}
+    onClick = e => {
+      this.setState({active: !this.state.active})
+      props.onClick(e);
+    }
+  }
+
+  render() {
+    return (
+      <button className={props.className} onClick={this.onClick}>
+        {this.state.active ? this.props.text1 : this.props.text2}
+      </button>
+    )
+  }
+};

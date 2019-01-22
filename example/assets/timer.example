@@ -1,0 +1,16 @@
+import React, {useState, useEffect} from "react"
+
+const useTime = () => {
+  const [time, setTime] = useState(Date.now())
+  useEffect(() => {
+    const timerInterval = setInterval(() => setTime(Date.now()), 1000)
+    return () => clearInterval(timerInterval)
+  })
+  return time
+}
+
+const TimerSeconds = props => (
+  <span className={props.className} onClick={props.onClick}>
+    {(useTime() / 1000) % 60}
+  </span>
+)

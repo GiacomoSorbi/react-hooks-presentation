@@ -3,40 +3,40 @@ import React, { Component } from 'react';
 import {
   Anim,
   Appear,
-  BlockQuote,
-  Cite,
-  // CodePane,
+  // BlockQuote,
+  // Cite,
+  CodePane,
   // ComponentPlayground,
   Deck,
-  Fill,
+  // Fill,
   Heading,
   Image,
-  Layout,
+  // Layout,
   // Link,
   ListItem,
   List,
   // Markdown,
-  MarkdownSlides,
-  Notes,
-  Quote,
-  Slide,
-  SlideSet,
-  TableBody,
-  TableHeader,
-  TableHeaderItem,
-  TableItem,
-  TableRow,
-  Table,
+  // MarkdownSlides,
+  // Notes,
+  // Quote,
+  Slide
+  // SlideSet,
+  // TableBody,
+  // TableHeader,
+  // TableHeaderItem,
+  // TableItem,
+  // TableRow,
+  // Table,
   // Text,
-  GoToAction
+  // GoToAction
 } from '../../src';
 import preloader from '../../src/utils/preloader';
 import createTheme from '../../src/themes/default';
-import Interactive from '../assets/interactive';
 const acurisLogo = require('../assets/acuris-logo.svg');
 require('normalize.css');
 
 const images = {
+  ffuu: require('../assets/ffuu.jpg'),
   hooks: require('../assets/hooks.gif')
 };
 
@@ -49,6 +49,12 @@ const theme = createTheme({
 });
 
 const transitionTime = 200;
+
+const slideProps = {
+  transitionIn: ['zoom', 'fade'],
+  transitionOut: ['slide', 'fade'],
+  bgColor: 'background'
+};
 
 export default class Presentation extends Component {
   constructor() {
@@ -87,11 +93,7 @@ export default class Presentation extends Component {
             <Image src={images.hooks.replace('/', '')} margin="0px auto" />
           </Appear>
         </Slide>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
-          bgColor="background"
-        >
+        <Slide {...slideProps}>
           <Anim
             fromStyle={{
               opacity: 1,
@@ -255,11 +257,7 @@ export default class Presentation extends Component {
             </Heading>
           </Anim>
         </Slide>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
-          bgColor="background"
-        >
+        <Slide {...slideProps}>
           <Heading size={2} caps fits textColor="primary" textSize="1.8em">
             In our stack we have React, Redux, Angular, NodeJS, AWS, Go,
             Terraform and much more
@@ -307,7 +305,7 @@ export default class Presentation extends Component {
         >
           <Heading size={2} caps fits textColor="primary" textSize="1.25em">
             ...And now, back to Business: React Hooks! <br />
-            First of all - how many are out there for us?
+            First of all - how many are out there for us? <br /> <br />
           </Heading>
           <Appear fd="1">
             <div>
@@ -315,73 +313,71 @@ export default class Presentation extends Component {
                 Plenty! The full list:
               </Heading>
               <List textColor="primary">
-                Basic ones:
-                <ListItem>
-                  <a href="https://reactjs.org/docs/hooks-reference.html#usestate">
-                    useState
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a href="https://reactjs.org/docs/hooks-reference.html#useeffect">
-                    useEffect
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a href="https://reactjs.org/docs/hooks-reference.html#usecontext">
-                    useContext
-                  </a>
-                </ListItem>
-                More specific ones (you won't be seeing them very often):
-                <ListItem>
-                  <a href="https://reactjs.org/docs/hooks-reference.html#usereducer">
-                    usereducer
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a href="https://reactjs.org/docs/hooks-reference.html#usecallback">
-                    useCallback
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a href="https://reactjs.org/docs/hooks-reference.html#usememo">
-                    useMemo
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a href="https://reactjs.org/docs/hooks-reference.html#useref">
-                    useRef
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a href="https://reactjs.org/docs/hooks-reference.html#useimperativehandle">
-                    useImperativeHandle
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a href="https://reactjs.org/docs/hooks-reference.html#uselayouteffect">
-                    useLayoutEffect
-                  </a>
-                </ListItem>
-                <ListItem>
-                  <a href="https://reactjs.org/docs/hooks-reference.html#usedebugvalue">
-                    useDebugValue
-                  </a>
-                </ListItem>
+                <Appear>
+                  <div>
+                    Basic ones:
+                    <ListItem>
+                      <a href="https://reactjs.org/docs/hooks-reference.html#usestate">
+                        useState
+                      </a>
+                    </ListItem>
+                    <ListItem>
+                      <a href="https://reactjs.org/docs/hooks-reference.html#useeffect">
+                        useEffect
+                      </a>
+                    </ListItem>
+                    <ListItem>
+                      <a href="https://reactjs.org/docs/hooks-reference.html#usecontext">
+                        useContext
+                      </a>
+                    </ListItem>
+                  </div>
+                </Appear>
+                <Appear>
+                  <div>
+                    More specific ones (you won't be seeing them very often):
+                    <ListItem>
+                      <a href="https://reactjs.org/docs/hooks-reference.html#usereducer">
+                        useReducer
+                      </a>
+                    </ListItem>
+                    <ListItem>
+                      <a href="https://reactjs.org/docs/hooks-reference.html#usecallback">
+                        useCallback
+                      </a>
+                    </ListItem>
+                    <ListItem>
+                      <a href="https://reactjs.org/docs/hooks-reference.html#usememo">
+                        useMemo
+                      </a>
+                    </ListItem>
+                    <ListItem>
+                      <a href="https://reactjs.org/docs/hooks-reference.html#useref">
+                        useRef
+                      </a>
+                    </ListItem>
+                    <ListItem>
+                      <a href="https://reactjs.org/docs/hooks-reference.html#useimperativehandle">
+                        useImperativeHandle
+                      </a>
+                    </ListItem>
+                    <ListItem>
+                      <a href="https://reactjs.org/docs/hooks-reference.html#uselayouteffect">
+                        useLayoutEffect
+                      </a>
+                    </ListItem>
+                    <ListItem>
+                      <a href="https://reactjs.org/docs/hooks-reference.html#usedebugvalue">
+                        useDebugValue
+                      </a>
+                    </ListItem>
+                  </div>
+                </Appear>
               </List>
             </div>
           </Appear>
-          {/* <CodePane
-            lang="jsx"
-            source={require('raw-loader!../assets/deck.example')}
-            margin="20px auto"
-            overflow="overflow"
-          /> */}
         </Slide>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
-          bgColor="background"
-        >
+        <Slide {...slideProps}>
           <Heading size={2} caps fits textColor="primary" textSize="1.25em">
             That's a lot, but they will all do basically one thing
             <br />- you get the full power of a class component while using
@@ -418,11 +414,7 @@ export default class Presentation extends Component {
             </Heading>
           </Appear>
         </Slide>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
-          bgColor="background"
-        >
+        <Slide {...slideProps}>
           <Heading size={2} caps fits textColor="primary" textSize="1.25em">
             We are going to focus on 2 of them:
           </Heading>
@@ -455,289 +447,278 @@ export default class Presentation extends Component {
             </Heading>
           </Appear>
         </Slide>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
-          bgColor="background"
-        >
-          <Anim
-            onAnim={(forwards, animIndex) => {
-              /* eslint-disable */
-              console.log('forwards ', forwards);
-              console.log('animIndex ', animIndex);
-              /* eslint-enable */
-            }}
-            fromStyle={{
-              opacity: 0,
-              transform: 'translate3d(0px, -100px, 0px)  scale(1) rotate(0deg)'
-            }}
-            toStyle={[
-              {
-                opacity: 1,
-                transform: 'translate3d(0px, 0px, 0px)  scale(1) rotate(0deg)'
-              },
-              {
-                opacity: 1,
-                transform:
-                  'translate3d(0px, 0px, 0px) scale(1.6) rotate(-15deg)'
-              },
-              {
-                opacity: 1,
-                transform: 'translate3d(0px, 0px, 0px)  scale(0.8) rotate(0deg)'
-              },
-              {
-                opacity: 1,
-                transform:
-                  'translate3d(0px, -200px, 0px)  scale(0.8) rotate(0deg)'
-              },
-              {
-                opacity: 1,
-                transform:
-                  'translate3d(200px, 0px, 0px)  scale(0.8) rotate(0deg)'
-              },
-              {
-                opacity: 1,
-                transform:
-                  'translate3d(0px, 200px, 0px)  scale(0.8) rotate(0deg)'
-              },
-              {
-                opacity: 1,
-                transform:
-                  'translate3d(-200px, 0px, 0px)  scale(0.8) rotate(0deg)'
-              }
-            ]}
-            easing={'bounceOut'}
-            transitionDuration={transitionTime}
-          >
-            <div>
-              <Heading size={6} caps fit textColor="secondary">
-                Flexible
-                <br />
-                animations
-              </Heading>
-            </div>
-          </Anim>
-          <Notes>Much animation, very style</Notes>
-        </Slide>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
-          bgColor="background"
-        >
-          <Heading size={2} textColor="secondary" margin="0.25em">
-            Mix it up!
+        <Slide {...slideProps}>
+          <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+            Think for example of a neat, minimalist component like this:
           </Heading>
-          <Heading size={6} textColor="tertiary">
-            You can even jump to different slides with a standard button or
-            custom component!
-          </Heading>
-          <GoToAction margin="1em" slide={8}>
-            Jump to Slide 8
-          </GoToAction>
-          <GoToAction
-            render={goToSlide => (
-              <select
-                defaultValue=""
-                style={{
-                  background: '#000',
-                  color: '#fff',
-                  fontFamily: theme.print.fonts.primary,
-                  fontSize: '1.1em'
-                }}
-                onChange={({ target }) => goToSlide(target.value)}
-              >
-                <option value="" disabled>
-                  Custom Slide Picker
-                </option>
-                <option value="wait-what">Wait What!? Slide</option>
-                <option value={3}>Slide 3</option>
-              </select>
-            )}
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/button-function.example')}
+            margin="20px auto"
+            overflow="overflow"
+            textSize="0.8em"
           />
-          <Notes>Doesn't work in export view, though</Notes>
-        </Slide>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
-          bgColor="background"
-        >
           <Appear>
-            <Heading size={1} caps textColor="tertiary">
-              Can
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              ...and then a Change Request appears - make it so that it displays
+              <i>text1</i> or <i>text2</i> according to how many times it has
+              been clicked, starting with <i>text1</i>.<br />
+              <br />
             </Heading>
           </Appear>
           <Appear>
-            <Heading size={1} caps textColor="secondary">
-              Count
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              FFFFFFFFFFFFFFUUUU-
+              <Image src={images.ffuu.replace('/', '')} width="200px" />
+            </Heading>
+          </Appear>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+            The traditional way:
+          </Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/button-class.example')}
+            margin="20px auto"
+            overflow="overflow"
+            textSize="0.6em"
+          />
+          <Appear>
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              Did you notice at least 3 errors above?
+              <br />
+              <br />
             </Heading>
           </Appear>
           <Appear>
-            <Heading size={1} caps textColor="tertiary">
-              Steps
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              Also, do you really like pain?
             </Heading>
           </Appear>
-          <Heading size={1} caps fit textColor="secondary">
-            Steps: {this.state.steps}
-          </Heading>
         </Slide>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
-          bgColor="background"
-        >
-          <Heading caps fit>
-            Flexible Layouts
+        <Slide {...slideProps}>
+          <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+            The hooks way:
           </Heading>
-          <Layout>
-            <Fill>
-              <Heading
-                size={4}
-                caps
-                textColor="secondary"
-                bgColor="white"
-                margin={10}
-              >
-                Left
-              </Heading>
-            </Fill>
-            <Fill>
-              <Heading
-                size={4}
-                caps
-                textColor="secondary"
-                bgColor="white"
-                margin={10}
-              >
-                Right
-              </Heading>
-            </Fill>
-          </Layout>
-        </Slide>
-        <Slide
-          transitionIn={['zoom', 'fade']}
-          transitionOut={['slide', 'fade']}
-          bgColor="background"
-        >
-          <BlockQuote>
-            <Quote>Wonderfully formatted quotes</Quote>
-            <Cite>Ken Wheeler</Cite>
-          </BlockQuote>
-        </Slide>
-        <Slide
-          transition={['spin', 'zoom']}
-          bgColor="tertiary"
-          controlColor="primary"
-          progressColor="primary"
-        >
-          <Heading caps fit size={1} textColor="primary">
-            Inline Markdown
-          </Heading>
-
-          <Notes>Who doesn't love markdown?</Notes>
-        </Slide>
-        {MarkdownSlides`
-#### Create Multiple Slides in Markdown
-All the same tags and elements supported in <Markdown /> are supported in MarkdownSlides.
----
-Slides are separated with **three dashes** and can be used _anywhere_ in the deck. The markdown can either be:
-* A Tagged Template Literal
-* Imported Markdown from another file
----
-Add some inline code to your markdown!
-
-\`\`\`js
-const myCode = (is, great) => 'for' + 'sharing';
-\`\`\`
-          `}
-        <Slide transition={['slide', 'spin']} bgColor="primary">
-          <Heading caps fit size={1} textColor="tertiary">
-            Smooth
-          </Heading>
-          <Heading caps fit size={1} textColor="secondary">
-            Combinable Transitions
-          </Heading>
-          <Notes>So smooth</Notes>
-        </Slide>
-        <SlideSet>
-          <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-            <List>
-              <Appear>
-                <ListItem>Inline style based theme system</ListItem>
-              </Appear>
-              <Appear>
-                <ListItem>Autofit text</ListItem>
-              </Appear>
-              <Appear>
-                <ListItem>Flexbox layout system</ListItem>
-              </Appear>
-              <Appear>
-                <ListItem>PDF export</ListItem>
-              </Appear>
-              <Appear>
-                <ListItem>And...</ListItem>
-              </Appear>
-            </List>
-          </Slide>
-          <Slide transition={['slide']} bgColor="primary">
-            <Heading size={1} caps fit textColor="tertiary">
-              Your presentations are interactive
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/button-hooks.example')}
+            margin="20px auto"
+            overflow="overflow"
+            textSize="0.8em"
+          />
+          <Appear>
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              Did you notice at least 3 errors above?
+              <br />
+              <br />
             </Heading>
-            <Interactive />
-          </Slide>
-        </SlideSet>
-        <Slide transition={['slide']} bgColor="primary">
-          <Heading
-            size={4}
-            caps
-            textColor="secondary"
-            bgColor="white"
-            margin={10}
-          >
-            Pizza Toppings
-          </Heading>
-          <Layout>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderItem />
-                  <TableHeaderItem>2011</TableHeaderItem>
-                  <TableHeaderItem>2013</TableHeaderItem>
-                  <TableHeaderItem>2015</TableHeaderItem>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow>
-                  <TableItem>None</TableItem>
-                  <TableItem>61.8%</TableItem>
-                  <TableItem>39.6%</TableItem>
-                  <TableItem>35.0%</TableItem>
-                </TableRow>
-                <TableRow>
-                  <TableItem>Pineapple</TableItem>
-                  <TableItem>28.3%</TableItem>
-                  <TableItem>54.5%</TableItem>
-                  <TableItem>61.5%</TableItem>
-                </TableRow>
-                <TableRow>
-                  <TableItem>Pepperoni</TableItem>
-                  <TableItem />
-                  <TableItem>50.2%</TableItem>
-                  <TableItem>77.2%</TableItem>
-                </TableRow>
-                <TableRow>
-                  <TableItem>Olives</TableItem>
-                  <TableItem />
-                  <TableItem>24.9%</TableItem>
-                  <TableItem>55.9%</TableItem>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </Layout>
-          <Notes>Hard to find cities without any pizza</Notes>
+          </Appear>
+          <Appear>
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              No, this time they are not there: leaner code, easier to write and
+              maintain FTW!
+            </Heading>
+          </Appear>
         </Slide>
-        <Slide transition={['spin', 'slide']} bgColor="tertiary">
-          <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
-            Made with love in Seattle by
+        <Slide {...slideProps}>
+          <Heading size={2} fits textColor="primary" textSize="1.25em">
+            useState TAKE-AWAYS:
+          </Heading>
+          <List textColor="primary">
+            <Appear>
+              <ListItem>
+                state like in a class component, right out of the box
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                can replace the use of <i>constructor</i> in a lot of use cases
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                can replace the use of <i>getDerivedStateFromProps</i> too with{' '}
+                <a
+                  href="https://reactjs.org/docs/hooks-faq.html#how-do-i-implement-getderivedstatefromprops"
+                  target="_blank"
+                >
+                  some little trick
+                </a>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                always generated in a [variable, setter] format, thus...
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>...also more readable and easy to grasp</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                and can be composed <i>outside</i> a component to make them more
+                modular reusable...
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                ...as long as you <i>use</i> them in a component
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                That is called <i>custom hook</i> and React really needed
+                something like that!
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+            On this one we try together to make sense of it
+          </Heading>
+          <CodePane
+            lang="jsx"
+            source={require('raw-loader!../assets/timer.example')}
+            margin="20px auto"
+            overflow="overflow"
+            textSize="0.8em"
+          />
+          <Appear>
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              Was it really so hard?
+              <br />
+              <br />
+            </Heading>
+          </Appear>
+          <Appear>
+            <Heading size={2} caps fits textColor="primary" textSize="1.25em">
+              Oh, and it was a custom hook
+            </Heading>
+          </Appear>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading size={2} fits textColor="primary" textSize="1.25em">
+            useEffect TAKE-AWAYS:
+          </Heading>
+          <List textColor="primary">
+            <Appear>
+              <ListItem>
+                lifecycle methods like in a class component, right out of the
+                box
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                can replace the use of{' '}
+                <i>componentDidMount, componentDidUpdate</i> and{' '}
+                <i>componentWillUnmount</i>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                the last one is triggered if/when your <i>useEffect</i> returns
+                something
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                to this day, <i>componentDidCatch</i> and{' '}
+                <i>getDerivedStateFromError</i> are the only methods that still
+                need a class
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                [<i>shouldComponentUpdate</i> requires <i>React.memo</i>, if you
+                are curious]
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                they can be fine tuned avoiding unnecessary calls, so it is
+                ideal
+                <a
+                  href="https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect"
+                  target="_blank"
+                >
+                  passing a second parameter, an array of values to ignore
+                </a>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                the function is called <b>after</b> the paint, so if you want
+                something that fires with the same event, go for
+                <a
+                  href="https://reactjs.org/docs/hooks-reference.html#uselayouteffect"
+                  target="_blank"
+                >
+                  useLayoutEffect
+                </a>
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading size={1} caps fits textColor="primary" textSize="1.25em">
+            Quick general take-aways:
+          </Heading>
+          <List textColor="primary">
+            <Appear fid="1">
+              <ListItem>
+                Don't force their adoption - no need to rewrite all your old
+                components
+              </ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem>
+                Don't panic: your current skills are going to stay relevant
+              </ListItem>
+            </Appear>
+            <Appear fid="3">
+              <ListItem>
+                ESLint is (already) your friend:{' '}
+                <a
+                  href="https://www.npmjs.com/package/eslint-plugin-react-hooks"
+                  target="_blank"
+                >
+                  eslint-plugin-react-hooks@next
+                </a>
+              </ListItem>
+            </Appear>
+            <Appear fid="4">
+              <ListItem>
+                And so are TypeScript and Flow (not 100% sure about Reason!)
+              </ListItem>
+            </Appear>
+            <Appear fid="5">
+              <ListItem>
+                Hooked components work as usual (and custom hooks can be tested
+                in components!)
+              </ListItem>
+            </Appear>
+            <Appear fid="6">
+              <ListItem>
+                Eat healthy, sleep regularly and follow the rules of hooks!
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading size={1} caps fits textColor="primary">
+            Question (or booing) time!
+            <br />
+            <br />
+          </Heading>
+          <Heading size={1} caps fits textColor="primary" textSize="1.8em">
+            [Plus: thanks again to our super kind hosts and...
+            <br />
+            <br />
+            We are hiring, come to have a quick talk with us if you are
+            interested!]
           </Heading>
         </Slide>
       </Deck>
