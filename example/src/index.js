@@ -3,32 +3,13 @@ import React, { Component } from 'react';
 import {
   Anim,
   Appear,
-  // BlockQuote,
-  // Cite,
   CodePane,
-  // ComponentPlayground,
   Deck,
-  // Fill,
   Heading,
   Image,
-  // Layout,
-  // Link,
   ListItem,
   List,
-  // Markdown,
-  // MarkdownSlides,
-  // Notes,
-  // Quote,
   Slide
-  // SlideSet,
-  // TableBody,
-  // TableHeader,
-  // TableHeaderItem,
-  // TableItem,
-  // TableRow,
-  // Table,
-  // Text,
-  // GoToAction
 } from '../../src';
 import preloader from '../../src/utils/preloader';
 import createTheme from '../../src/themes/default';
@@ -37,7 +18,9 @@ require('normalize.css');
 
 const images = {
   ffuu: require('../assets/ffuu.jpg'),
-  hooks: require('../assets/hooks.gif')
+  hooks: require('../assets/hooks.gif'),
+  linkedin: require('../assets/linkedin.png'),
+  twitter: require('../assets/twitter.png')
 };
 
 preloader(images);
@@ -84,12 +67,12 @@ export default class Presentation extends Component {
           <Heading size={1} fit caps lineHeight={1} textColor="primary">
             You are about to begin...
           </Heading>
-          <Appear fid="1">
+          <Appear>
             <Heading size={1} fit caps lineHeight={1} textColor="primary">
               An Adventurous Foray into React Hooks
             </Heading>
           </Appear>
-          <Appear fid="2">
+          <Appear>
             <Image src={images.hooks.replace('/', '')} margin="0px auto" />
           </Appear>
         </Slide>
@@ -576,8 +559,11 @@ export default class Presentation extends Component {
           </List>
         </Slide>
         <Slide {...slideProps}>
+          <Heading size={2} fits textColor="primary" textSize="1.25em">
+            useEffect
+          </Heading>
           <Heading size={2} caps fits textColor="primary" textSize="1.25em">
-            On this one we try together to make sense of it
+            Let's try together to make sense of this one:
           </Heading>
           <CodePane
             lang="jsx"
@@ -638,8 +624,7 @@ export default class Presentation extends Component {
             </Appear>
             <Appear>
               <ListItem>
-                they can be fine tuned avoiding unnecessary calls, so it is
-                ideal
+                they can be fine-tuned to avoid unnecessary calls, just{' '}
                 <a
                   href="https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect"
                   target="_blank"
@@ -651,7 +636,7 @@ export default class Presentation extends Component {
             <Appear>
               <ListItem>
                 the function is called <b>after</b> the paint, so if you want
-                something that fires with the same event, go for
+                something that fires with the same event, go for{' '}
                 <a
                   href="https://reactjs.org/docs/hooks-reference.html#uselayouteffect"
                   target="_blank"
@@ -711,14 +696,35 @@ export default class Presentation extends Component {
           <Heading size={1} caps fits textColor="primary">
             Question (or booing) time!
             <br />
-            <br />
           </Heading>
           <Heading size={1} caps fits textColor="primary" textSize="1.8em">
+            <br />
             [Plus: thanks again to our super kind hosts and...
             <br />
             <br />
             We are hiring, come to have a quick talk with us if you are
             interested!]
+            <br />
+            <br />
+          </Heading>
+          <Heading size={1} caps fits textColor="primary" textSize="1.8em">
+            TW:{' '}
+            <a href="https://twitter.com/thegame8714" target="_blank">
+              @thegame8714
+            </a>{' '}
+            and{' '}
+            <a href="https://twitter.com/SorbiG" target="_blank">
+              @SorbiG
+            </a>
+            <br />
+            LI:{' '}
+            <a href="https://twitter.com/thegame8714" target="_blank">
+              Fabio Salimbeni
+            </a>{' '}
+            and{' '}
+            <a href="https://twitter.com/SorbiG" target="_blank">
+              Giacomo Sorbi
+            </a>
           </Heading>
         </Slide>
       </Deck>

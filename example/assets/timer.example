@@ -3,8 +3,8 @@ import React, {useState, useEffect} from "react"
 const useTime = () => {
   const [time, setTime] = useState(Date.now())
   useEffect(() => {
-    const timerInterval = setInterval(() => setTime(Date.now()), 1000)
-    return () => clearInterval(timerInterval)
+    const timerTimeout = setTimeout(() => setTime(Date.now()), 1000)
+    return () => clearTimeout(timerTimeout)
   })
   return time
 }
